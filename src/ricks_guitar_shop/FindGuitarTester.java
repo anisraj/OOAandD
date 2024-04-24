@@ -11,7 +11,7 @@ public class FindGuitarTester {
                 "Stratocaster", Type.ELECTRIC, Wood.ALDER,
                 Wood.ALDER, 12);
 
-        List<Guitar> matchingGuitars = inventory.search(whatErinLikes);
+        List<Guitar> matchingGuitars = inventory.searchGuitars(whatErinLikes);
 
         if (!matchingGuitars.isEmpty()) {
             for (Guitar guitar : matchingGuitars) {
@@ -25,15 +25,42 @@ public class FindGuitarTester {
         } else {
             System.out.println("Sorry Erin, we have nothing for you.");
         }
+
+        MandolinSpec whatRickLikes = new MandolinSpec(Builder.FENDER,
+                "Stratocaster", Type.ELECTRIC, Wood.ALDER,
+                Wood.ALDER, Style.A);
+
+        List<Mandolin> matchingMandolins = inventory.searchMandolins(whatRickLikes);
+
+        if (!matchingMandolins.isEmpty()) {
+            for (Mandolin mandolin : matchingMandolins) {
+                System.out.println("Erin, you might like this " +
+                        mandolin.getSpec().getBuilder() + " " + mandolin.getSpec().getModel() + " " +
+                        mandolin.getSpec().getType() + " mandolin:\n   " +
+                        mandolin.getSpec().getTopWood() + " top.\nYou can have it only $" +
+                        mandolin.getPrice() + "!\n ----"
+                );
+            }
+        } else {
+            System.out.println("Sorry Erin, we have nothing for you.");
+        }
     }
 
     private static void initializeInventory(Inventory inventory) {
-        inventory.addGuitar("V95693", 1499.99,
-                Builder.FENDER, "Stratocaster", Type.ELECTRIC,
-                Wood.ALDER, Wood.ALDER, 12);
+        inventory.addInstrument("V95693", 1499.99,
+                new GuitarSpec(Builder.FENDER, "Stratocaster", Type.ELECTRIC,
+                        Wood.ALDER, Wood.ALDER, 12));
 
-        inventory.addGuitar("V95694", 1299.99,
-                Builder.FENDER, "Stratocaster", Type.ELECTRIC,
-                Wood.ALDER, Wood.ALDER, 12);
+        inventory.addInstrument("V95694", 1299.99,
+                new GuitarSpec(Builder.FENDER, "Stratocaster", Type.ELECTRIC,
+                        Wood.ALDER, Wood.ALDER, 12));
+
+        inventory.addInstrument("V95693", 1499.99,
+                new MandolinSpec(Builder.FENDER, "Stratocaster", Type.ELECTRIC,
+                        Wood.ALDER, Wood.ALDER, Style.A));
+
+        inventory.addInstrument("V95693", 1499.99,
+                new MandolinSpec(Builder.FENDER, "Stratocaster", Type.ELECTRIC,
+                        Wood.ALDER, Wood.ALDER, Style.F));
     }
 }
