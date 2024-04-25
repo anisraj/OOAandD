@@ -1,6 +1,6 @@
 package ricks_guitar_shop;
 
-public abstract class Instrument {
+public class Instrument {
     private String serialNumber;
     private double price;
     private InstrumentSpec spec;
