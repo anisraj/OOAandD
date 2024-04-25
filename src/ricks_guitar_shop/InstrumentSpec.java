@@ -25,7 +25,7 @@ public class InstrumentSpec {
     public boolean matches(InstrumentSpec otherSpec) {
         for (Object key : otherSpec.properties.keySet()) {
             String propertyName = (String) key;
-            if (properties.get(propertyName) != null && !(properties.get(propertyName).equals(otherSpec.getProperty(propertyName)))) {
+            if (!(otherSpec.getProperty(propertyName).equals(properties.get(propertyName)))) {
                 return false;
             }
         }
