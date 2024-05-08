@@ -1,0 +1,23 @@
+shenoli
+shenoli station
+karve
+karve naka
+karad city
+malakapur
+dhebewadi phata
+wing
+dhebewadi
+
+shenoli-karad
+shenoli
+shenoli station
+karve
+karve naka
+karad city
+
+karad-dhebewadi
+karad city
+malakapur
+dhebewadi phata
+wing
+dhebewadi

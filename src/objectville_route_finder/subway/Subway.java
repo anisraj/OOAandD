@@ -33,4 +33,21 @@ public class Subway {
             throw new RuntimeException("Invalid connection");
         }
     }
+
+    public boolean hasConnection(String station1Name, String station2Name, String lineName) {
+        Connection connectionToTest = new Connection(
+                new Station(station1Name),
+                new Station(station2Name),
+                lineName);
+        for (Object object : connections) {
+            Connection connection = (Connection) object;
+            if (connection.getLineName().equalsIgnoreCase(connectionToTest.getLineName()) &&
+                    connection.getStation1().equals(connectionToTest.getStation1()) &&
+                    connection.getStation2().equals(connectionToTest.getStation2())
+            ) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
